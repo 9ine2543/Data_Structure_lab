@@ -1,24 +1,27 @@
+from Class_Queue import Queue
+
 def String2Int(n):
     return ord(n) - 48
 
 def En_or_De(mode,mess,code):
     
     if(mode == 'd' or mode == 'D'):
-        finalstr = []
+        finalstr = Queue()
         k = 0
         for i in test:
             for j in i :
                 t = ord(j)-String2Int(code[k])
-                if(t>122):
-                    t = t-123+97
-                elif(t>90 and t < 97):
-                    t = t-91+65
+                if(t<97 and t > 90):
+                    t = 123-(97-t)
+                elif(t<65 ):
+                    t = 90 - (65-t)
                 k += 1
-                finalstr.append(chr(t))
-            finalstr.append(' ')
+                finalstr.enQueue(chr(t))
+            if(i != test[len(test)-1]):
+                finalstr.enQueue(' ')
 
     elif(mode == 'e' or mode == 'E'):
-        finalstr = []
+        finalstr = Queue()
         k = 0
         for i in test:
             for j in i :
@@ -29,11 +32,11 @@ def En_or_De(mode,mess,code):
                 elif(t>90 and t < 97):
                     t = t-91+65
                 k += 1
-                finalstr.append(chr(t))
+                finalstr.enQueue(chr(t))
             if(i != test[len(test)-1]):
-                finalstr.append(' ')
+                finalstr.enQueue(' ')
 
-    return finalstr
+    return finalstr.items
 
 test = input('Enter you text : ').split(' ')
 c = input('Enter you code: ').split(' ')
@@ -42,11 +45,9 @@ code = []
 j = 0
 for i in range(len(test)) :
     j += len(test[i])
-k = 0 
 n = 0
-while k < j:
+for i in range (j):
     code.append(c[n])
-    k += 1
     n += 1
     if (n == len(c)):
         n = 0

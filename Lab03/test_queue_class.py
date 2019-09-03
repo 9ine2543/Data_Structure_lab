@@ -1,4 +1,4 @@
-from Queue import Queue
+from Class_Queue import Queue
 name = input()
 test = Queue()
 print('Empty : ',test.isEmpty())
