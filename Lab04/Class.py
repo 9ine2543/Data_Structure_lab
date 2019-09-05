@@ -12,3 +12,7 @@ class node:
         self.data = data
     def setNext(self,next):
         self.next = next
+
+class list:
+    def __init__(self,head = None):
+        self.head = head
