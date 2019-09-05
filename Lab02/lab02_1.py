@@ -1,4 +1,4 @@
-from Stack import Stack
+from Class_Stack import Stack
 
 test = Stack()
 name = input("Enter your name : ")

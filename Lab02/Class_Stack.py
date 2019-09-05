@@ -1,11 +1,11 @@
 class Stack:
-	def __init__(self, list = None):
+	def __init__(self, list=None):
 		if list == None:
 			self.items = []
 		else:
 			self.items = list
 
-	def push(self,i):
+	def push(self, i):
 		self.items.append(i)
 
 	def pop(self):
