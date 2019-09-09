@@ -1,7 +1,11 @@
 from Class import node
+from Class import myList
 
-q = node('A')
-print(q)
-r = node('B' , q)
-print(r)
-print(r.next)
+d = node('D')
+c = node('C',d)
+b = node('B',c)
+a = node('A',b)
+
+l = myList(a)
+
+print(l)

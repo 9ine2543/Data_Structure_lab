@@ -13,6 +13,45 @@ class node:
     def setNext(self,next):
         self.next = next
 
-class list:
+class myList:
     def __init__(self,head = None):
         self.head = head
+        self.size = 0
+
+    def __str__(self):
+        temp = self.head
+        str = ''
+        while(temp.next != None):
+            str = str + temp.data
+            temp = temp.next
+        return str
+
+    def size(self):
+        return self.size
+
+    def isEmpty(self):
+        return self.size == 0
+
+    def append(self,data):
+        new_node = node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        
+        temp = self.head
+        while (temp.next):
+            temp = temp.next
+
+        temp.next = new_node
+        size += 1
+
+    def addHead(self,data):
+        new_node = node(data,self.head)
+        self.head = new_node
+        self.size += 1
+
+    def isIn(self,data):
+        temp = self.head
+        while(temp.data != data and temp.next != None ):
+            temp = temp.next
+        return temp.data == data 
