@@ -13,18 +13,19 @@ class node:
     def setNext(self,next):
         self.next = next
 
-class myList:
+class List:
     def __init__(self,head = None):
         self.head = head
         self.size = 0
 
     def __str__(self):
         temp = self.head
-        str = ''
-        while(temp.next != None):
-            str = str + temp.data
+        s = ''
+        while(temp.next):
+            s = s + temp.data + ' '
             temp = temp.next
-        return str
+        s = s + temp.data
+        return s
 
     def size(self):
         return self.size
@@ -43,7 +44,7 @@ class myList:
             temp = temp.next
 
         temp.next = new_node
-        size += 1
+        self.size += 1
 
     def addHead(self,data):
         new_node = node(data,self.head)

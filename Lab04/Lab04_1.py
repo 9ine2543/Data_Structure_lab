@@ -1,11 +1,10 @@
 from Class import node
-from Class import myList
+from Class import List
 
-d = node('D')
-c = node('C',d)
-b = node('B',c)
-a = node('A',b)
-
-l = myList(a)
+a = node('A')
+l = List(a)
+l.append('B')
+l.append('C')
+l.addHead('0')
 
 print(l)
