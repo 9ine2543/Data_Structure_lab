@@ -8,3 +8,6 @@ l.append('C')
 l.addHead('0')
 
 print(l)
+
+print(l.remove('0'),' ',l )
+print (l.removeHead(),' ',l)
