@@ -22,15 +22,18 @@ class node:
 class List:
     def __init__(self, head=None):
         self.head = head
-        self.size = 0
+        if head is None:
+            self.size = 0
+        else:
+            self.size = 1
 
     def __str__(self):
         temp = self.head
         s = ''
         while(temp.next):
-            s = s + temp.data + ' '
+            s = s + str(temp.data) + ' '
             temp = temp.next
-        s = s + temp.data
+        s = s + str(temp.data)
         return s
 
     def size(self):
@@ -90,6 +93,7 @@ class List:
                 temp = temp.next
 
             prev.next = temp.next
+            self.size -= 1
         return remov
 
     def removeTail(self):
@@ -98,9 +102,11 @@ class List:
             prev = temp
             temp = temp.next
         prev.next = None
+        self.size -= 1
         return temp
 
     def removeHead(self):
         temp = self.head
         self.head = temp.next
+        self.size -= 1
         return temp
