@@ -36,7 +36,7 @@ class List:
         s = s + str(temp.data)
         return s
 
-    def size(self):
+    def getSize(self):
         return self.size
 
     def isEmpty(self):
@@ -45,6 +45,7 @@ class List:
     def append(self, data):
         new_node = node(data)
         if self.head is None:
+            self.size += 1
             self.head = new_node
             return
 
@@ -53,6 +54,7 @@ class List:
             temp = temp.next
 
         temp.next = new_node
+
         self.size += 1
 
     def addHead(self, data):
@@ -79,34 +81,44 @@ class List:
         return temp
 
     def remove(self, data):
-        temp = self.head
-        if(temp.data == data):
-            self.head = temp.next
-            remov = temp
-            temp = None
-        else:
-            while (temp.next):
-                if (temp.data == data):
-                    remov = temp
-                    break
-                prev = temp
-                temp = temp.next
+        if(self.isIn(data)):
+            temp = self.head
+            if(temp.data == data):
+                self.head = temp.next
+                remov = temp
+                temp = None
+            else:
+                while (temp.next):
+                    if (temp.data == data):
+                        remov = temp
+                        break
+                    prev = temp
+                    temp = temp.next
 
-            prev.next = temp.next
-            self.size -= 1
-        return remov
+                prev.next = temp.next
+                self.size -= 1
+            return remov.data
+        else:
+            return str(data) + ' is not in List'
 
     def removeTail(self):
-        temp = self.head
-        while(temp.next):
-            prev = temp
-            temp = temp.next
-        prev.next = None
-        self.size -= 1
-        return temp
+        if(self.isEmpty()):
+            return 'This list is empty.'
+        else:
+            temp = self.head
+            while(temp.next):
+                prev = temp
+                temp = temp.next
+            prev.next = None
+            self.size -= 1
+            return temp
+            
 
     def removeHead(self):
-        temp = self.head
-        self.head = temp.next
-        self.size -= 1
-        return temp
+        if(self.isEmpty()):
+            return 'This list is empty.'
+        else:
+            temp = self.head
+            self.head = temp.next
+            self.size -= 1
+            return temp

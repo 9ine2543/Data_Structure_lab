@@ -1,13 +1,24 @@
 from Class import node
 from Class import List
 
-a = node('A')
-l = List(a)
-l.append('B')
-l.append('C')
-l.addHead('0')
-
+l = List()
+l.addHead('6')
 print(l)
+print('Empty : ',l.isEmpty())
+#print(l.removeTail())
+for i in range(1,5):
+    l.append(i)
+    print(l)
+    print('Size : ',l.getSize())
 
-print(l.remove('0'),' ',l )
-print (l.removeHead(),' ',l)
+l.addHead('0')
+print(l)
+print('Size : ',l.getSize())
+
+print('Is "1" in List : ', l.isIn(1))
+print('remove head : ', l.removeHead())
+print('remove tail : ', l.removeTail())
+print('remove "2" :' , l.remove(2))
+print('remove "7" :' , l.remove(7))
+print(l)
+print('Size : ',l.getSize())

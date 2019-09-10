@@ -5,13 +5,7 @@ from Class import node
 def bottomUp(l, num):
     count = num / 100.0 * l.size
     for i in range (0,int(count)):
-        temp = l.head
-        ref = l.head
-        while(temp.next):
-            temp = temp.next
-        temp.next = ref
-        l.head = ref.next
-        ref.next = None
+        l.append(l.removeHead().data)
 
     return l
 
@@ -45,6 +39,9 @@ def riffle(l,num):
                 temp.next = temp2
     return l
 
+# def deriffle(l,num):
+
+
 l = List(node(1))
 for i in range(2, 11):
     l.append(i)
@@ -53,5 +50,6 @@ percent = int(input("Enter your percent to bottom up : "))
 print(bottomUp(l,percent)) 
 rif = int (input("Enter your percent to riffle : "))
 print(riffle(l,rif))
+#print(deriffle(l,rif))
 
 
