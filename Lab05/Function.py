@@ -40,3 +40,22 @@ def fib(n):
 
     return n
 print('',fib(4))
+
+def binarySearch(lo,hi,x,l):
+    if(hi < lo):
+        return None
+    m = int((lo+hi)/2)
+    if x is l[m]:
+        return m
+    elif l[m] < x :
+        return binarySearch(m+1,hi,x,l)
+    else:
+        return binarySearch(lo,m-1,x,l)
+
+inp = int(input('Enter your list : '))
+l = []
+while inp >  0:
+    l.append(inp % 10)
+    inp  = int(inp / 10)
+l.reverse()
+print(binarySearch(0,len(l)-1,2,l))
