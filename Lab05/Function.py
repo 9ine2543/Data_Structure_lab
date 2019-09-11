@@ -35,3 +35,12 @@ def print1ToN(n):
         print(n,end = ' ')
     
 print1ToN(5)
+print('')
+def fib(n):
+    if n is 2 or n is 1:
+        n = 1
+    else:
+        n = fib(n-1) + fib(n-2)
+
+    return n
+print(fib(4))
