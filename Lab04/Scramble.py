@@ -1,5 +1,4 @@
-from Class import List,node
-
+from Class import List, node
 
 def bottomUp(l, num):
     count = num / 100.0 * l.getSize()
@@ -14,8 +13,10 @@ def bottomUp(l, num):
     temp.next = None
     return l
 
-def riffle(l,num):
-    # count = num / 100.0 * l.size
+
+def riffle(l, num):
+    count = num / 100.0 * l.size
+
     # count2 = l.size - count
     # temp = l.head
     # temp2 = l.head
@@ -47,14 +48,26 @@ def riffle(l,num):
 # def deriffle(l,num):
 
 
+def debottomUp(l, num):
+    count = l.getSize() - (num / 100.0 * l.getSize())
+    temp = l.head
+    while temp.next is not None:
+        temp = temp.next
+    temp.next = l.head
+    while (count != 0):
+        temp = temp.next
+        count -= 1
+    l.head = temp.next
+    temp.next = None
+    return l
+
 l = List(node(1))
 for i in range(2, 11):
     l.append(i)
 print(l)
 percent = int(input("Enter your percent to bottom up : "))
-print(bottomUp(l,percent)) 
-rif = int (input("Enter your percent to riffle : "))
-print(riffle(l,rif))
-#print(deriffle(l,rif))
-
-
+print(bottomUp(l, percent))
+# rif = int(input("Enter your percent to riffle : "))
+# print(riffle(l, rif))
+print(debottomUp(l,percent))
+# print(deriffle(l,rif))
