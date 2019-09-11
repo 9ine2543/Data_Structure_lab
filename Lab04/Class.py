@@ -30,10 +30,10 @@ class List:
     def __str__(self):
         temp = self.head
         s = ''
-        while(temp.next):
-            s = s + str(temp.data) + ' '
+        while temp.next is not None:
+            s = s + str(temp.getData()) +' '
             temp = temp.next
-        s = s + str(temp.data)
+        s = s + str(temp.getData())
         return s
 
     def getSize(self):
@@ -75,29 +75,21 @@ class List:
             temp = temp.next
             n += 1
         temp = self.head
-        for i in range(n-1):
+        for i in range (n - 1):
             temp = temp.next
 
         return temp
 
     def remove(self, data):
         if(self.isIn(data)):
-            temp = self.head
-            if(temp.data == data):
-                self.head = temp.next
-                remov = temp
-                temp = None
+            if(self.head.data == data):
+                remov = self.head
+                self.head = remov.next
             else:
-                while (temp.next):
-                    if (temp.data == data):
-                        remov = temp
-                        break
-                    prev = temp
-                    temp = temp.next
-
-                prev.next = temp.next
-                self.size -= 1
-            return remov.data
+                remov = self.before(data).next
+                self.before(data).next = remov.next
+            self.size -= 1
+            return remov
         else:
             return str(data) + ' is not in List'
 
