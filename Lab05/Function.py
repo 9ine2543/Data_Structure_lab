@@ -59,3 +59,5 @@ while inp >  0:
     inp  = int(inp / 10)
 l.reverse()
 print(binarySearch(0,len(l)-1,2,l))
+
+def move()
