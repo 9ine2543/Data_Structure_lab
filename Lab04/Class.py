@@ -18,7 +18,6 @@ class node:
     def setNext(self, next):
         self.next = next
 
-
 class List:
     def __init__(self, head=None):
         self.head = head
@@ -105,7 +104,6 @@ class List:
             self.size -= 1
             return temp
             
-
     def removeHead(self):
         if(self.isEmpty()):
             return 'This list is empty.'

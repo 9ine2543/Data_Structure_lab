@@ -85,13 +85,15 @@ def debottomUp(l, num):
     temp.next = None
     return l
 
-l = List(node(1))
-for i in range(2, 11):
+l = List()
+for i in range (1,31):
     l.append(i)
 print(l)
 percent = int(input("Enter your percent to bottom up : "))
-print(bottomUp(l, percent))
+print('BottomUp : ',bottomUp(l, percent))
 rif = int(input("Enter your percent to riffle : "))
-print(riffle(l, rif))
-print(deriffle(l,rif))
-print(debottomUp(l,percent))
+print('Riffle :     ',riffle(l, rif))
+print('Deriffle :   ',deriffle(l,rif))
+print('DebottomUp : ',debottomUp(l,percent))
+
+
