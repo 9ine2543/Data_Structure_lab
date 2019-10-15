@@ -52,12 +52,20 @@ def binarySearch(lo,hi,x,l):
     else:
         return binarySearch(lo,m-1,x,l)
 
-inp = int(input('Enter your list : '))
-l = []
-while inp >  0:
-    l.append(inp % 10)
-    inp  = int(inp / 10)
-l.reverse()
-print(binarySearch(0,len(l)-1,2,l))
+# inp = int(input('Enter your list : '))
+# l = []
+# while inp >  0:
+#     l.append(inp % 10)
+#     inp  = int(inp / 10)
+# l.reverse()
+# print(binarySearch(0,len(l)-1,2,l))
 
-def move()
+def move(n,A,C,B):
+    if n == 1:
+        print(n,'from',A ,'to',C)
+    else:
+        move(n-1,A,B,C)
+        print(n,'from',A ,'to',C)
+        move(n-1,B,C,A)
+
+move(4,'A','C','B')
