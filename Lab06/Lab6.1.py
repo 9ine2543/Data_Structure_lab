@@ -177,6 +177,5 @@ for i in l:
     t.addI(i)
 # t.inOrder()
 t.printSideway()
-t.delete(9)
-t.addI(2)
+t.delete(4)
 t.printSideway()
